@@ -36,6 +36,7 @@ function calcularTriangulo(lado1, lado2, base, altura) {
     }
 }
 
+// Calculo de la altura de un triangulo isosceles
 function calcularAlturaTriangulo (lado1, base) {
     if(lado1 == base){
         console.warn('Este no es un triangulo isosceles');
@@ -44,6 +45,25 @@ function calcularAlturaTriangulo (lado1, base) {
         return Math.sqrt((lado1 ** 2) - ((base ** 2) / 4));
     }
 }
+
+// Calculo de la altura de un triangulo escaleno
+function calcularAlturaTrianguloEscaleno(lado1, lado2, lado3) {
+    if ((lado1 == lado2) || (lado1 == lado3) || (lado2 == lado3)) {
+      //console.warn('No es un triangulo escaleno');
+      return false;
+    }
+    else {
+      const s = (lado1 + lado2 + lado3) / 2;
+      const s1 = s - lado1;
+      const s2 = s - lado2;
+      const s3 = s - lado3;
+
+      const H = (2 / lado1) * Math.sqrt(s * s1 * s2 * s3);
+      const resultado = Math.floor(H);
+      return resultado;
+     }
+  }
+
 
 console.group('Triangulo')
 console.log({
