@@ -72,8 +72,8 @@ function calcularTrianguloEscaleno () {
     if ((lado1 == lado2) || (lado1 == lado3) || (lado2 == lado3)) {
         //console.warn('No es un triangulo escaleno');
         pRespuestaTrianguloEscaleno.innerText = 'No es un Triangulo Escaleno';
-      }
-      else {
+    }
+    else {
         const s = (lado1 + lado2 + lado3) / 2;
         const s1 = s - lado1;
         const s2 = s - lado2;
@@ -82,7 +82,25 @@ function calcularTrianguloEscaleno () {
         const altura = (2 / lado1) * Math.sqrt(s * s1 * s2 * s3);
         const resultado = Math.floor(altura);
         pRespuestaTrianguloEscaleno.innerText = 'La altura del triangulo escaleno es: ' + resultado;
-       }
+    }
+}
+
+// Circulo
+
+const btnCirculo = document.querySelector('#calcularCirculo');
+const inputRadio = document.querySelector('#radioCirculo');
+const pRespuestaCirculo = document.querySelector('#respuestaCirculo');
+
+btnCirculo.addEventListener('click', calcularCirculoAreaCircunferencia);
+
+
+function calcularCirculoAreaCircunferencia () {
+    const radio = Number(inputRadio.value);
+
+    const circuenferencia = (radio * 2) * Math.PI;
+    const area = Math.pow(radio, 2) * Math.PI;
+
+    pRespuestaCirculo.innerText = 'La circunferencia del circuo es: ' + circuenferencia + ' y el area es: ' + area;
 }
 
 
