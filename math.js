@@ -2,16 +2,6 @@
 const btnCuadrado = document.querySelector('#calcularCuadrado');
 const inputlado = document.querySelector('#cuadradoL')
 const pResultadoCuadrado = document.querySelector('#respuestaCuadrado');
-
-btnCuadrado.addEventListener('click', calcularCuadradoAP);
-
-function calcularCuadradoAP(){
-    const lado = Number(inputlado.value);
-    const perimetro = lado * 4;
-    const area = lado * lado;
-    pResultadoCuadrado.innerText = 'El perimetro del cuadrado es: ' + perimetro + 'cm,  y el area es: '+ area + "cm².";
-}
-
 // Triangulo
 const btnTrianguloAP = document.querySelector('#calcularTrianguloAP');
 const inputLado1 = document.querySelector('#trianguloL1');
@@ -19,8 +9,38 @@ const inputLado2 = document.querySelector('#trianguloL2');
 const inputbase = document.querySelector('#trianguloB');
 const inputAltura = document.querySelector('#trianguloA');
 const pRespuestaTriangulo = document.querySelector('#respuestaTriangulo');
+// Triangulo isosceles
+const btnTrianguloIsosceles = document.querySelector('#calcularAlturaTrianguloI');
+const inputLadosIsosceles = document.querySelector('#trianguloIsoscelesL');
+const inputbaseIsosceles = document.querySelector('#trianguloIsoscelesB');
+const pRespuestaTrianguloIsosceles = document.querySelector('#respuestaTrianguloIsosceles');
+// Triangulo Escaleno
+const btnTrianguloEscaleno = document.querySelector('#calcularAlturaTrianguloE');
+const inputEscalenoLado1 = document.querySelector('#trianguloEscalenoL1');
+const inputEscalenoLado2 = document.querySelector('#trianguloEscalenoL2');
+const inputEscalenoLado3 = document.querySelector('#trianguloEscalenoL3');
+const pRespuestaTrianguloEscaleno = document.querySelector('#respuestaTrianguloEscaleno');
+// Circulo
+const btnCirculo = document.querySelector('#calcularCirculo');
+const inputRadio = document.querySelector('#radioCirculo');
+const pRespuestaCirculo = document.querySelector('#respuestaCirculo');
 
+
+// eventos y ejecucion de funciones
+btnCuadrado.addEventListener('click', calcularCuadradoAP);
 btnTrianguloAP.addEventListener('click', calcularTrianguloAP);
+btnTrianguloIsosceles.addEventListener('click', calcularTrianguloIsosceles);
+btnTrianguloEscaleno.addEventListener('click', calcularTrianguloEscaleno);
+btnCirculo.addEventListener('click', calcularCirculoAreaCircunferencia);
+
+
+// funciones para el calculo de las areas, perimetros y alturas de las figuras geometricas
+function calcularCuadradoAP(){
+    const lado = Number(inputlado.value);
+    const perimetro = lado * 4;
+    const area = lado * lado;
+    pResultadoCuadrado.innerText = 'El perimetro del cuadrado es: ' + perimetro + 'cm,  y el area es: '+ area + "cm².";
+}
 
 function calcularTrianguloAP () {
     const lado1 = Number(inputLado1.value); 
@@ -34,14 +54,6 @@ function calcularTrianguloAP () {
     pRespuestaTriangulo.innerText = 'El perimetro del triangulo es:' + perimetro + ' y el area es: ' + area;
 }
 
-// Triangulo isosceles
-const btnTrianguloIsosceles = document.querySelector('#calcularAlturaTrianguloI');
-const inputLadosIsosceles = document.querySelector('#trianguloIsoscelesL');
-const inputbaseIsosceles = document.querySelector('#trianguloIsoscelesB');
-const pRespuestaTrianguloIsosceles = document.querySelector('#respuestaTrianguloIsosceles');
-
-btnTrianguloIsosceles.addEventListener('click', calcularTrianguloIsosceles);
-
 function calcularTrianguloIsosceles () {
     const lados = Number(inputLadosIsosceles.value);
     const base = Number(inputbaseIsosceles.value);
@@ -54,15 +66,6 @@ function calcularTrianguloIsosceles () {
         pRespuestaTrianguloIsosceles.innerText = 'La altura del triangulo isosceles es: ' + altura;
     }
 }
-
-// Triangulo Escaleno
-const btnTrianguloEscaleno = document.querySelector('#calcularAlturaTrianguloE');
-const inputEscalenoLado1 = document.querySelector('#trianguloEscalenoL1');
-const inputEscalenoLado2 = document.querySelector('#trianguloEscalenoL2');
-const inputEscalenoLado3 = document.querySelector('#trianguloEscalenoL3');
-const pRespuestaTrianguloEscaleno = document.querySelector('#respuestaTrianguloEscaleno');
-
-btnTrianguloEscaleno.addEventListener('click', calcularTrianguloEscaleno);
 
 function calcularTrianguloEscaleno () {
     const lado1 = Number(inputEscalenoLado1.value);
@@ -85,15 +88,6 @@ function calcularTrianguloEscaleno () {
     }
 }
 
-// Circulo
-
-const btnCirculo = document.querySelector('#calcularCirculo');
-const inputRadio = document.querySelector('#radioCirculo');
-const pRespuestaCirculo = document.querySelector('#respuestaCirculo');
-
-btnCirculo.addEventListener('click', calcularCirculoAreaCircunferencia);
-
-
 function calcularCirculoAreaCircunferencia () {
     const radio = Number(inputRadio.value);
 
@@ -103,6 +97,8 @@ function calcularCirculoAreaCircunferencia () {
     pRespuestaCirculo.innerText = 'La circunferencia del circuo es: ' + circuenferencia + ' y el area es: ' + area;
 }
 
+
+// operaciones basicas y pruebas echas en la consola
 
 // Calculo del perimetro y del area de un cuadrado
 const ladoCuadrado = 5;
