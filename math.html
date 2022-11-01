@@ -9,11 +9,53 @@
     <body>
 
         <h1>Taller de Matemáticas con JavaScript</h1>
+        <h1>Formulas basicas de Area, Perimetro de Un cuadrado, Triangulo y un circulo</h1>
 
-        <p>
-            Por favor, abre la consola del inspector de elementos.
-        </p>
+        <p>Por favor, abre la consola del inspector de elementos.</p>
 
+        <section>
+            <h2>Cuadrado</h2>
+            <label for="cuadradoL">Medida del lado del cuadrado</label>
+            <input type="number" id="cuadradoL">
+            <button id="calcularCuadrado">Calcular</button>
+            <p id="respuestaCuadrado"></p>
+        </section>
+
+        <section>
+            <h2>Triangulo</h2>
+            <label for="trianguloL1">Medida del lado 1 del triangulo</label>
+            <input type="number" id="trianguloL1">
+            <label for="trianguloL2">Medida del lado 2 del triangulo</label>
+            <input type="number" id="trianguloL2">
+            <label for="trianguloB">Medida de la base del triangulo</label>
+            <input type="number" id="trianguloB">
+            <label for="trianguloA">medidad de la altura del triangulo</label>
+            <input type="number" id="trianguloA">
+            <button id="calcularTrianguloAP">Calcular area y perimetro</button>
+            <p id="respuestaTriangulo"></p>
+        </section>
+
+        <section>
+            <h2>Triangulo Isosceles</h2>
+            <label for="trianguloIsoscelesL">Medidad de los dos lados del triangulo: </label>
+            <input type="Number" id="trianguloIsoscelesL">
+            <label for="trianguloIsoscelesB">Medidad de la base </label>
+            <input type="number" id="trianguloIsoscelesB">
+            <button id="calcularAlturaTrianguloI">Calcular la altura</button>
+            <p id="respuestaTrianguloIsosceles"></p>
+        </section>
+
+        <section>
+            <h2>Triangulo Escaleno</h2>
+            <label for="trianguloEscalenoL1">Medida del 1° lado del triangulo</label>
+            <input type="number" id="trianguloEscalenoL1">
+            <label for="trianguloEscalenoL2">Medida del 2° lado del triangulo</label>
+            <input type="number" id="trianguloEscalenoL2">
+            <label for="trianguloEscalenoL3">Medidad del 3° lado del triangulo</label>
+            <input type="number" id="trianguloEscalenoL3">
+            <button id="calcularAlturaTrianguloE">Calcular Altura</button>
+            <p id="respuestaTrianguloEscaleno"></p>
+        </section>
 
         <script src="./math.js"></script>
     </body>

@@ -1,3 +1,91 @@
+// Cuadrado 
+const btnCuadrado = document.querySelector('#calcularCuadrado');
+const inputlado = document.querySelector('#cuadradoL')
+const pResultadoCuadrado = document.querySelector('#respuestaCuadrado');
+
+btnCuadrado.addEventListener('click', calcularCuadradoAP);
+
+function calcularCuadradoAP(){
+    const lado = Number(inputlado.value);
+    const perimetro = lado * 4;
+    const area = lado * lado;
+    pResultadoCuadrado.innerText = 'El perimetro del cuadrado es: ' + perimetro + 'cm,  y el area es: '+ area + "cm².";
+}
+
+// Triangulo
+const btnTrianguloAP = document.querySelector('#calcularTrianguloAP');
+const inputLado1 = document.querySelector('#trianguloL1');
+const inputLado2 = document.querySelector('#trianguloL2');
+const inputbase = document.querySelector('#trianguloB');
+const inputAltura = document.querySelector('#trianguloA');
+const pRespuestaTriangulo = document.querySelector('#respuestaTriangulo');
+
+btnTrianguloAP.addEventListener('click', calcularTrianguloAP);
+
+function calcularTrianguloAP () {
+    const lado1 = Number(inputLado1.value); 
+    const lado2 = Number(inputLado2.value);
+    const base = Number(inputbase.value);
+    const altura = Number(inputAltura.value);
+
+    const perimetro = lado1 + lado2 + base;
+    const area = (base * altura) / 2;
+
+    pRespuestaTriangulo.innerText = 'El perimetro del triangulo es:' + perimetro + ' y el area es: ' + area;
+}
+
+// Triangulo isosceles
+const btnTrianguloIsosceles = document.querySelector('#calcularAlturaTrianguloI');
+const inputLadosIsosceles = document.querySelector('#trianguloIsoscelesL');
+const inputbaseIsosceles = document.querySelector('#trianguloIsoscelesB');
+const pRespuestaTrianguloIsosceles = document.querySelector('#respuestaTrianguloIsosceles');
+
+btnTrianguloIsosceles.addEventListener('click', calcularTrianguloIsosceles);
+
+function calcularTrianguloIsosceles () {
+    const lados = Number(inputLadosIsosceles.value);
+    const base = Number(inputbaseIsosceles.value);
+
+    if(lados == base){
+        pRespuestaTrianguloIsosceles.innerText = 'Este no es un triangulo isosceles!!';
+    }
+    else{
+        const altura = Math.sqrt((lados ** 2) - ((base ** 2) / 4));
+        pRespuestaTrianguloIsosceles.innerText = 'La altura del triangulo isosceles es: ' + altura;
+    }
+}
+
+// Triangulo Escaleno
+const btnTrianguloEscaleno = document.querySelector('#calcularAlturaTrianguloE');
+const inputEscalenoLado1 = document.querySelector('#trianguloEscalenoL1');
+const inputEscalenoLado2 = document.querySelector('#trianguloEscalenoL2');
+const inputEscalenoLado3 = document.querySelector('#trianguloEscalenoL3');
+const pRespuestaTrianguloEscaleno = document.querySelector('#respuestaTrianguloEscaleno');
+
+btnTrianguloEscaleno.addEventListener('click', calcularTrianguloEscaleno);
+
+function calcularTrianguloEscaleno () {
+    const lado1 = Number(inputEscalenoLado1.value);
+    const lado2 = Number(inputEscalenoLado2.value);
+    const lado3 = Number(inputEscalenoLado3.value);
+
+    if ((lado1 == lado2) || (lado1 == lado3) || (lado2 == lado3)) {
+        //console.warn('No es un triangulo escaleno');
+        pRespuestaTrianguloEscaleno.innerText = 'No es un Triangulo Escaleno';
+      }
+      else {
+        const s = (lado1 + lado2 + lado3) / 2;
+        const s1 = s - lado1;
+        const s2 = s - lado2;
+        const s3 = s - lado3;
+  
+        const altura = (2 / lado1) * Math.sqrt(s * s1 * s2 * s3);
+        const resultado = Math.floor(altura);
+        pRespuestaTrianguloEscaleno.innerText = 'La altura del triangulo escaleno es: ' + resultado;
+       }
+}
+
+
 // Calculo del perimetro y del area de un cuadrado
 const ladoCuadrado = 5;
 const perimetroCuadrado = ladoCuadrado * 4;
@@ -11,7 +99,6 @@ console.log({
     areaCuadrado,
 });
 console.groupEnd('Cuadrado')
-
 function calcularCuadrado(lado) {
     return {
         perimetro: lado * 4,
