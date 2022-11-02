@@ -14,3 +14,15 @@ function calcularPromedio(lista){
     console.log(promedio);
     return promedio;
 }
+
+
+function esParOImpar (lista){
+
+    const resultado = lista.length % 2;
+    if(resultado == 0){ 
+        return true;
+    }
+    else {
+        return false;
+    }
+}
